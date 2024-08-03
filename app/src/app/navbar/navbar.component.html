@@ -1,0 +1,27 @@
+<form [formGroup]="userform">
+    <input type="text" id="name" placeholder="Enter Name" formControlName="name">
+    <input type="email" id="email" placeholder="Enter Email" formControlName="email">
+    <input type="password" id="password" placeholder="Enter Password" formControlName="password">
+    <button (click)="postdata()">Insert</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+            <th>password</th>
+            <th>action</th>
+        </tr>
+        <tr *ngFor="let s of records">
+            <td>{{s.id}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.email}}</td>
+            <td>{{s.password}}</td>
+            <td>
+                <button class="btn btn-outline-primary" (click)="updateuser()">update</button>
+                <button class="btn btn-outline-danger" (click)="deleteuser(s.id)">delete</button>
+            </td>
+        </tr>
+    </thead>
+</table>
